@@ -1,0 +1,54 @@
+package com.example.data.api
+
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+data class GenerateContentRequest(
+    val contents: List<ContentItem>,
+    val systemInstruction: ContentItem? = null,
+    val generationConfig: GenerationConfig? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class ContentItem(
+    val role: String? = null,
+    val parts: List<PartItem>
+)
+
+@JsonClass(generateAdapter = true)
+data class PartItem(
+    val text: String? = null,
+    val inlineData: InlineDataItem? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class InlineDataItem(
+    val mimeType: String,
+    val data: String
+)
+
+@JsonClass(generateAdapter = true)
+data class GenerationConfig(
+    val temperature: Float? = 0.7f,
+    val topP: Float? = 0.95f,
+    val topK: Int? = 40,
+    val maxOutputTokens: Int? = 2048
+)
+
+@JsonClass(generateAdapter = true)
+data class GenerateContentResponse(
+    val candidates: List<CandidateItem>? = null,
+    val promptFeedback: PromptFeedback? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class CandidateItem(
+    val content: ContentItem? = null,
+    val finishReason: String? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class PromptFeedback(
+    val blockReason: String? = null
+)

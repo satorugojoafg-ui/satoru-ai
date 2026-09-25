@@ -1,0 +1,6 @@
+{
+  "name": "Gojo AI",
+  "description": "دستیار هوشمند همه‌فن‌حریف فارسی Gojo AI با پشتیبانی از Gemini AI برای چت، تولید محتوا، تحلیل داده و مدیریت پروژه‌ها",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
